@@ -16,6 +16,29 @@
 
 @implementation ViewController
 
+
+/**
+ * Instantiate a new User model and return it
+ *
+ */
+-(User *) buildUserModel:(NSString *)username
+                  name:(NSString *)name
+              location:(NSString *)location
+          endorsements:(NSNumber *)endorsements
+                  team:(NSString *)team
+
+{
+    
+    User *user = [[User alloc] init];
+    user.username = username;
+    user.name = name;
+    user.location = location;
+    user.endorsements = endorsements;
+    user.team = team;
+    NSLog(@"New user created with username %@", user.username);
+    return user;
+}
+
 /**
  * Takes an NS Dictionary response and builds a user and badge model
  *
@@ -29,12 +52,7 @@
     NSNumber *endorsements = [response objectForKey:@"endorsements"];
     NSString *team = [response objectForKey:@"team"];
   
-    User *user = [[User alloc] init];
-    user.username = username;
-    user.name = name;
-    user.location = location;
-    user.endorsements = endorsements;
-    user.team = team;
+    [self buildUserModel:username name:name location:location endorsements:endorsements team:team];
 }
 
 -(void) makeRequest
