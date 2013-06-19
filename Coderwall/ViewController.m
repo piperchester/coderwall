@@ -22,10 +22,10 @@
  *
  */
 -(User *) buildUserModel:(NSString *)username
-                  name:(NSString *)name
-              location:(NSString *)location
-          endorsements:(NSNumber *)endorsements
-                  team:(NSString *)team
+                    name:(NSString *)name
+                location:(NSString *)location
+            endorsements:(NSNumber *)endorsements
+                    team:(NSString *)team
 
 {
     
