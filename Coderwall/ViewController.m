@@ -46,11 +46,11 @@
  */
 -(void) parseJSONResponse:(NSDictionary *)response
 {
-    NSString *username = [response objectForKey:@"username"];
-    NSString *name = [response objectForKey:@"name"];
-    NSString *location = [response objectForKey:@"location"];
+    NSString *username     = [response objectForKey:@"username"];
+    NSString *name         = [response objectForKey:@"name"];
+    NSString *location     = [response objectForKey:@"location"];
     NSNumber *endorsements = [response objectForKey:@"endorsements"];
-    NSString *team = [response objectForKey:@"team"];
+    NSString *team         = [response objectForKey:@"team"];
   
     [self buildUserModel:username name:name location:location endorsements:endorsements team:team];
 }
