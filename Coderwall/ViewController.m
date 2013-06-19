@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "AFNetworking.h"
 
 @interface ViewController ()
 
@@ -14,9 +15,24 @@
 
 @implementation ViewController
 
+-(void) makeRequest
+{
+    NSString *path = @"https://coderwall.com/owainlewis.json";
+    NSURL *url = [NSURL URLWithString:path];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"App.net Global Stream: %@", JSON);
+    } failure:nil];
+    [operation start];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = @"CoderWall";
+    [self makeRequest];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
