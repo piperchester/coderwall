@@ -10,6 +10,10 @@
 
 @implementation User
 
-
+@synthesize username;
+@synthesize name;
+@synthesize location;
+@synthesize endorsements;
+@synthesize team;
 
 @end

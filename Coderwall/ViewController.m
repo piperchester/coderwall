@@ -15,14 +15,21 @@
 
 @implementation ViewController
 
+-(void) parseJSONResponse:(NSDictionary *)response
+{
+    NSLog(@"Got it");
+}
+
 -(void) makeRequest
 {
     NSString *path = @"https://coderwall.com/owainlewis.json";
     NSURL *url = [NSURL URLWithString:path];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"App.net Global Stream: %@", JSON);
+                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+    {
+        NSDictionary *jsonDict = (NSDictionary *) JSON;
+        [self parseJSONResponse:jsonDict];
     } failure:nil];
     [operation start];
 }
