@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AFNetworking.h"
+#import "User.h"
 
 @interface ViewController ()
 
@@ -15,9 +16,25 @@
 
 @implementation ViewController
 
+/**
+ * Takes an NS Dictionary response and builds a user and badge model
+ *
+ * @param response NSDictionary JSON repsonse from Coderwall API
+ */
 -(void) parseJSONResponse:(NSDictionary *)response
 {
-    NSLog(@"Got it");
+    NSString *username = [response objectForKey:@"username"];
+    NSString *name = [response objectForKey:@"name"];
+    NSString *location = [response objectForKey:@"location"];
+    NSNumber *endorsements = [response objectForKey:@"endorsements"];
+    NSString *team = [response objectForKey:@"team"];
+  
+    User *user = [[User alloc] init];
+    user.username = username;
+    user.name = name;
+    user.location = location;
+    user.endorsements = endorsements;
+    user.team = team;
 }
 
 -(void) makeRequest
