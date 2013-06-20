@@ -16,4 +16,11 @@
 @property (nonatomic) NSNumber *endorsements;
 @property (nonatomic) NSString *team;
 
+
+- (id)initWithParams:(NSString *)aUsername
+                name:(NSString *)name
+            location:(NSString *)location
+        endorsements:(NSNumber *)endorsements
+                team:(NSString *)team;
+
 @end
